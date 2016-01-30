@@ -1,8 +1,4 @@
-EasyPlugin Spec's documentation
+Terminology
 ===============================================================================
 
-.. toctree::
-    :maxdepth: 2
 
-    arch
-    term
