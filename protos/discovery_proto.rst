@@ -34,4 +34,4 @@ The following ABNF grammar define Component Discovery Protocol::
 
     body             = UUID
 
-    UUID             = 4OCTET "-" 2OCTET "-" 2OCTET "-" 2OCTET "-" 6OCTET
+    UUID             = 16OCTET
