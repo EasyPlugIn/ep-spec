@@ -1,9 +1,7 @@
-EasyPlugin Spec's documentation
+Protocol
 ===============================================================================
 
 .. toctree::
-    :maxdepth: 2
+    :glob:
 
-    arch
-    term
-    protos/index
+    *
