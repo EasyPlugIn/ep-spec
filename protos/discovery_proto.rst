@@ -4,6 +4,8 @@ Component Discovery Protocol
 In a local area network, we may have one or more input/output devices.
 We will introduce how to plug/remove devices here.
 
+:state: Draft
+
 
 Component Identity
 ----------------------------------------------------------------------
