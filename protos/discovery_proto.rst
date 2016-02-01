@@ -30,18 +30,88 @@ constant interval. Taking one to five seconds as broadcasting interval
 is RECOMMENDED.
 
 
+.. _cdp-protocol-grammar:
+
 Protocol Grammar
 ----------------------------------------------------------------------
 
-The following ABNF grammar define Component Discovery Protocol::
+The following ABNF grammar defines Component Discovery Protocol::
 
-    cd-protocol      = header *body
+    cd-protocol      = header *body CRLF
 
-    header           = "EP" SP verb %x02
+    header           = "EP" SP UUID SP
+
+    body             = verb *UUID
+
     verb             = hello
+                     / ping
+                     / pong
 
-    hello            = "HELLO"
-
-    body             = UUID
+    hello            = "HELO"
+    ping             = "PING"
+    pong             = "PONG"
 
     UUID             = 16OCTET
+
+The sender MUST reveal its ``UUID`` in header.
+
+
+The Protocol Commands
+----------------------------------------------------------------------
+
+The *verb* described in section :ref:`cdp-protocol-grammar` are considered as
+commands here.
+
+
+``hello`` Command
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This command SHALL be used by a beacon to reveal its ``UUID`` at the local
+area network. It MUST carry a ``UUID`` refered to sender itself.
+
+
+.. _cdp-ping-command:
+
+``ping`` Command
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This command is invoked when component need to check the other known component
+still alive or not.
+
+The following message format are valid:
+
+- ``PING UUID``
+- ``PING``
+
+The former format carry a ``UUID`` refered to destination component.
+If the ``UUID`` of the receiver do not match with message ``UUID``, we MAY
+drop this message without response. Otherwise, the receiver SHOULD invoke a
+:ref:`cdp-pong-command`.
+
+The later format do not make anything follow it. Any receiver SHOULD invoke
+a :ref:`cdp-pong-command` to original sender. In order to make components be
+discovered actively, this format is RECOMMENDED to send via broadcasting.
+Or in case of discovering all component on same endpoint, same ip,
+for example, this format is also RECOMMENDED.
+
+
+.. _cdp-pong-command:
+
+``pong`` Command
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This command is invoked in order to reponse the :ref:`cdp-ping-command`.
+
+The following message format is valid:
+
+- ``PONG UUID``
+
+This message MUST carry a ``UUID`` referd to the source of
+:ref:`cdp-ping-command`.  The receiver MAY drop this message if the carried
+``UUID`` do not match with receiver itself.
+
+
+Security Aspects
+----------------------------------------------------------------------
+
+
