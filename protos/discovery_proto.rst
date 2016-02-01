@@ -18,8 +18,11 @@ in this document are to be interpreted as described in :rfc:`2199`.
 Component Identity
 ----------------------------------------------------------------------
 
-We use UUID to identify a component.
+We use `Universally Unique Identifier (UUID)`__ to identify a component.
 
+.. _UUID: https://en.wikipedia.org/wiki/Universally_unique_identifier
+
+__ UUID_
 
 Transportation Layer
 ----------------------------------------------------------------------
