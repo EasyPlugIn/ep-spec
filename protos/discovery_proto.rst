@@ -55,6 +55,7 @@ The following ABNF grammar defines Component Discovery Protocol::
     pong             = "PONG" dest-UUID
 
     src-UUID         = UUID
+    dest-UUID        = UUID
     UUID             = 16OCTET
 
 The sender MUST reveal its ``UUID`` in header.
