@@ -80,15 +80,15 @@ area network. It MUST carry a ``UUID`` refered to sender itself.
 ``ping`` Command
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This command is invoked when component need to check the other known component
-still alive or not.
+This command is invoked when a component need to check the other known
+components still alive or not.
 
 The following message format are valid:
 
 - ``PING UUID``
 - ``PING``
 
-The former format carry a ``UUID`` refered to destination component.
+The former format carry a ``UUID`` refered to a destination component.
 If the ``UUID`` of the receiver do not match with message ``UUID``, we MAY
 drop this message without response. Otherwise, the receiver SHOULD invoke a
 :ref:`cdp-pong-command`.
