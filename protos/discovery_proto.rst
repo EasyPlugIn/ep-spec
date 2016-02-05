@@ -40,20 +40,21 @@ Protocol Grammar
 
 The following ABNF grammar defines Component Discovery Protocol::
 
-    cd-protocol      = header *body CRLF
+    cd-protocol      = header body CRLF
 
-    header           = "EP" SP UUID SP
+    header           = "EP" SP src-UUID SP
 
-    body             = verb *UUID
+    body             = 1*verb
 
     verb             = hello
                      / ping
                      / pong
 
     hello            = "HELO"
-    ping             = "PING"
-    pong             = "PONG"
+    ping             = "PING" 0*1dest-UUID
+    pong             = "PONG" dest-UUID
 
+    src-UUID         = UUID
     UUID             = 16OCTET
 
 The sender MUST reveal its ``UUID`` in header.
