@@ -10,7 +10,7 @@ In order to keep those resources well-managed, this specification will
 regulate the process of following:
 
 - Resource registration(creation)
-- Resource unregistration(deletion)
+- Resource deregistration(deletion)
 - Resource meta data modification
 - Resource meta data retrieval
 
