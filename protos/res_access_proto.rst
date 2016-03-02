@@ -7,7 +7,7 @@ always comes and go. We will consider them as kind of `resource`.
 They provide :ref:`device feature` (s) sometimes available and sometimes not.
 
 In order to keep those resources well-managed, this specification will
-regulate the process of following:
+regulate the following process:
 
 - Resource registration(creation)
 - Resource deregistration(deletion)
