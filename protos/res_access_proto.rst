@@ -7,12 +7,12 @@ always comes and go. We will consider them as kind of `resource`.
 They provide :ref:`device feature` (s) sometimes available and sometimes not.
 
 In order to keep those resources well-managed, this specification will
-regulate the following process:
+regulate the following *process*:
 
 - Resource registration(creation)
 - Resource deregistration(deletion)
-- Resource meta data modification
-- Resource meta data retrieval
+- Resource metadata modification
+- Resource metadata retrieval
 
 
 :state: Draft
@@ -26,26 +26,136 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 in this document are to be interpreted as described in :rfc:`2199`.
 
 
+.. _rap-resource-id:
+
 Resource Identity
 ----------------------------------------------------------------------
 
 The basic unit of a resource is a :ref:`device application`.
-We will use `UUID`_ introduced in :ref:`cd-proto`.
+We will use `UUID`_ introduced in :ref:`cd-proto` as resource identity.
 
 The different process on same physical device MUST have different `UUID`_.
 Because the feature on they may diverge.
 
 .. _UUID: https://en.wikipedia.org/wiki/Universally_unique_identifier
 
-__ UUID_
-
 
 Transportation Layer
 ----------------------------------------------------------------------
 
+The message delivered via the transportation layer MUST be constructed
+with two part:
+
+- Header part
+- Data part
+
+The header part MUST indicate various protocol related metadata, including:
+
+- The kind of *process* mentioned above.
+- The URI endpoint for operating.
+
+The data part is OPTIONAL and it indicate generic data container,
+including but can more than:
+
+- The arguments for the *process*.
+- Optional data field for the URI endpoint.
+
+
+Implementation Suggestion
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The RECOMMENDED transportation layer implementation is HTTP.
+The HTTP support is widespread, the implementation on devices will become
+easier.
+
+In header part, the *process* can be mapped to the *HTTP Verb* like *GET*,
+*POST*, or *DELETE*. The HTTP URL is also easy to design.
+In data part, the JSON/XML content is suitable for deliver complex
+data structure.
+
 
 Transportation Endpoint
 ----------------------------------------------------------------------
+
+The `REST-like`_ endpoint design on this protocol is RECOMMENDED.
+
+Each endpoint has a valid set of *verbs*.
+The univeral set *verbs* is
+:math:`\{ \text{GET}, \text{POST}, \text{PUT}, \text{DELETE} \}`
+which is inspired by HTTP verbs.
+
+
+Registration Endpoint
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This endpoint indicate the creation of a *resource*.
+
+::
+
+    POST /<id>
+
+    <metadata>
+
+Where ``<id>`` is the UUID of a resource
+mentioned in :ref:`rap-resource-id`.
+
+Where ``<metadata>`` section is OPTIONAL.
+
+
+Deregistration Endpoint
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This endpoint indicate the deletion of a *resource*.
+
+::
+
+    DELETE /<id>
+
+Where ``<id>`` is the UUID of a resource
+mentioned in :ref:`rap-resource-id`.
+
+
+Metadata Retrieval Endpoint
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This endpoint indicates the reading of resource metadata. 
+
+::
+
+    GET /<id>/<field locator>
+
+    <metadata>
+
+
+Where ``<id>`` is the UUID of a resource
+mentioned in :ref:`rap-resource-id`.
+
+Where ``<field locator>`` is OPTIONAL.
+It indicates the selector of the data field,
+its format is implementation dependent.
+
+
+Metadata Modification Endpoint
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This endpoint indicates the updating of resource metadata.
+
+::
+
+    PUT /<id>/<field locator>
+
+    <metadata>
+
+
+Where ``<id>`` is the UUID of a resource
+mentioned in :ref:`rap-resource-id`.
+
+Where ``<field locator>`` is OPTIONAL.
+It indicates the selector of the data field,
+its format is implementation dependent.
+
+
+.. _REST-like: https://en.wikipedia.org/wiki/Representational_state_transfer
 
 
 Security Aspects
