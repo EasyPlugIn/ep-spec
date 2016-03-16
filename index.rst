@@ -7,3 +7,4 @@ EasyPlugin Spec's documentation
     arch
     term
     protos/index
+    api/index
