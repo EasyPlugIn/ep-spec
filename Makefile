@@ -18,6 +18,8 @@ PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+AUTOBUILD_BIND  ?= 127.0.0.1
+AUTOBUILD_PORT  ?= 8080
 
 .PHONY: help
 help:
@@ -214,3 +216,8 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+.PHONY: autobuild
+autobuild:
+	sphinx-autobuild -b html -i '.git/*' -p $(AUTOBUILD_PORT) \
+		-H $(AUTOBUILD_BIND) $(ALLSPHINXOPTS) $(BUILDDIR)/html
