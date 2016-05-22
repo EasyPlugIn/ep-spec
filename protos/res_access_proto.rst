@@ -182,12 +182,14 @@ is not recognized.
 Metadata
 ----------------------------------------------------------------------
 
-:name: Arbitrary string, it can be consider as comment.
-
-:model: It has naming convension: ``([A-Z][a-z0-9]*)+``.
+:accept_protos: List of supported protocols. This field is OPTIONAL.
 
 :feature_list: List of features. Feature has naming convension:
                ``([a-z][_a-z0-9]*)+``.
+
+:model: It has naming convension: ``([A-Z][a-z0-9]*)+``.
+
+:name: Arbitrary string, it can be consider as comment.
 
 :owner: Arbitrary string. This field is OPTIONAL.
 

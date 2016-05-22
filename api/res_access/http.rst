@@ -82,7 +82,8 @@ Request::
     {
         "name": "BetaCat",
         "model": "Cat",
-        "feature_list": ["meow"]
+        "feature_list": ["meow"],
+        "accept_protos": ["MQTT", "WebSocket"]
     }
 
 Response::
@@ -92,7 +93,13 @@ Response::
 
     {
         "id": "219e0050-10e0-48dd-9b99-e196acfb30c8",
-        "state": "ok"
+        "state": "ok",
+        "control_channel": {
+            "proto": "MQTT",
+            "host": "example.org",
+            "port": "1883",
+            "topic": "ctrl-219e0050-10e0-48dd-9b99-e196acfb30c8"
+        }
     }
 
 Error Response::
