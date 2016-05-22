@@ -94,7 +94,7 @@ This endpoint indicate the creation of a *resource*.
 
 ::
 
-    POST /<id>
+    PUT /<id>
 
     # body
     <metadata>
@@ -102,15 +102,15 @@ This endpoint indicate the creation of a *resource*.
 Where ``<id>`` is the UUID of a resource
 mentioned in :ref:`rap-resource-id`.
 
-Where :ref:`<metatdata> <rap-metadata>` section is OPTIONAL.
-The device can register first, then the :ref:`metatdata <rap-metadata>`
+Where :ref:`<metadata> <rap-metadata>` section is OPTIONAL.
+The device can register first, then the :ref:`metadata <rap-metadata>`
 can be added later.
 
 
 Rejection
 **************************************************
 
-We SHOULD reject the registration request if the :ref:`metatdata <rap-metadata>`
+We SHOULD reject the registration request if the :ref:`metadata <rap-metadata>`
 is not recognized.
 
 
@@ -131,7 +131,7 @@ Metadata Retrieval Endpoint
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This endpoint indicates the reading of resource
-:ref:`metatdata <rap-metadata>`.
+:ref:`metadata <rap-metadata>`.
 
 ::
 
@@ -150,11 +150,11 @@ Metadata Modification Endpoint
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This endpoint indicates the updating of resource
-:ref:`metatdata <rap-metadata>`.
+:ref:`metadata <rap-metadata>`.
 
 ::
 
-    PUT /<id>/<field locator>
+    POST /<id>/<field locator>
 
     <metadata>
 
@@ -173,7 +173,7 @@ its format is implementation dependent.
 Rejection
 **************************************************
 
-We SHOULD reject the registration request if the :ref:`metatdata <rap-metadata>`
+We SHOULD reject the registration request if the :ref:`metadata <rap-metadata>`
 is not recognized.
 
 
@@ -189,7 +189,7 @@ Metadata
 :feature_list: List of features. Feature has naming convension:
                ``([a-z][_a-z0-9]*)+``.
 
-:owner: Arbitrary string.
+:owner: Arbitrary string. This field is OPTIONAL.
 
 
 Security Aspects
