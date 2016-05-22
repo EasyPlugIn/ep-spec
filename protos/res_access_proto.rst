@@ -25,7 +25,7 @@ Preamble
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"
-in this document are to be interpreted as described in :rfc:`2199`.
+in this document are to be interpreted as described in :rfc:`2119`.
 
 
 .. _rap-resource-id:
@@ -96,12 +96,22 @@ This endpoint indicate the creation of a *resource*.
 
     POST /<id>
 
+    # body
     <metadata>
 
 Where ``<id>`` is the UUID of a resource
 mentioned in :ref:`rap-resource-id`.
 
-Where ``<metadata>`` section is OPTIONAL.
+Where :ref:`<metatdata> <rap-metadata>` section is OPTIONAL.
+The device can register first, then the :ref:`metatdata <rap-metadata>`
+can be added later.
+
+
+Rejection
+**************************************************
+
+We SHOULD reject the registration request if the :ref:`metatdata <rap-metadata>`
+is not recognized.
 
 
 Deregistration Endpoint
@@ -120,13 +130,12 @@ mentioned in :ref:`rap-resource-id`.
 Metadata Retrieval Endpoint
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This endpoint indicates the reading of resource metadata. 
+This endpoint indicates the reading of resource
+:ref:`metatdata <rap-metadata>`.
 
 ::
 
     GET /<id>/<field locator>
-
-    <metadata>
 
 
 Where ``<id>`` is the UUID of a resource
@@ -140,7 +149,8 @@ its format is implementation dependent.
 Metadata Modification Endpoint
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This endpoint indicates the updating of resource metadata.
+This endpoint indicates the updating of resource
+:ref:`metatdata <rap-metadata>`.
 
 ::
 
@@ -158,6 +168,28 @@ its format is implementation dependent.
 
 
 .. _REST-like: https://en.wikipedia.org/wiki/Representational_state_transfer
+
+
+Rejection
+**************************************************
+
+We SHOULD reject the registration request if the :ref:`metatdata <rap-metadata>`
+is not recognized.
+
+
+.. _rap-metadata:
+
+Metadata
+----------------------------------------------------------------------
+
+:name: Arbitrary string, it can be consider as comment.
+
+:model: It has naming convension: ``([A-Z][a-z0-9]*)+``.
+
+:feature_list: List of features. Feature has naming convension:
+               ``([a-z][_a-z0-9]*)+``.
+
+:owner: Arbitrary string.
 
 
 Security Aspects
