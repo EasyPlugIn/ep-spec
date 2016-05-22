@@ -56,6 +56,8 @@ PUT /<id>
 Request Headers:
     - `Accept`_
         - *application/json; charset=utf-8*
+    - `Content-Type`_
+        - *application/json; charset=utf-8*
 
 Response Headers:
     - `Content-Type`_
