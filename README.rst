@@ -1,7 +1,7 @@
-EasyPlugin Spec
+IoTtalk Spec
 ===============================================================================
 
 
-.. image:: https://readthedocs.org/projects/ep-spec/badge/?version=latest&style=flat-square
-    :target: http://ep-spec.readthedocs.org/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/iottalk-spec/badge/?version=latest&style=flat-square
+    :target: http://iottalk-spec.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status

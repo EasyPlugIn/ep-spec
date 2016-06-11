@@ -96,9 +96,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/EasyPluginSpec.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/IoTtalkSpec.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/EasyPluginSpec.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/IoTtalkSpec.qhc"
 
 .PHONY: applehelp
 applehelp:
@@ -115,8 +115,8 @@ devhelp:
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/EasyPluginSpec"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/EasyPluginSpec"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/IoTtalkSpec"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/IoTtalkSpec"
 	@echo "# devhelp"
 
 .PHONY: epub

@@ -1,4 +1,4 @@
-EasyPlugin Spec's documentation
+IoTtalk Spec's documentation
 ===============================================================================
 
 .. toctree::
