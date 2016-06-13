@@ -30,7 +30,7 @@ __ UUID_
 Transportation Layer
 ----------------------------------------------------------------------
 
-The EasyPlugin Data Gateway MUST broadcast its identity on IPv4 UDP 1900.
+The IoTtalk Data Gateway MUST broadcast its identity on IPv4 UDP 1900.
 We consider it act as a beacon. A beacon SHALL keep broadcasting in an
 constant interval. Taking one to five seconds as broadcasting interval
 is RECOMMENDED.
@@ -45,7 +45,7 @@ The following ABNF grammar defines Component Discovery Protocol::
 
     cd-protocol      = header body CRLF
 
-    header           = "EP" SP src-UUID SP
+    header           = "IT" SP src-UUID SP
 
     body             = 1*verb
 

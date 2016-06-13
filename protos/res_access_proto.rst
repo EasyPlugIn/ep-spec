@@ -3,8 +3,8 @@
 Resource Access Protocol
 ===============================================================================
 
-In a LAN, our device and EasyPlugin Data Gateway can known each other via
-:ref:`cd-proto`. The :ref:`device application` which connects to EasyPlugin
+In a LAN, our device and IoTtalk Data Gateway can known each other via
+:ref:`cd-proto`. The :ref:`device application` which connects to IoTtalk
 always comes and go. We will consider them as kind of `resource`.
 They provide :ref:`device feature` (s) sometimes available and sometimes not.
 

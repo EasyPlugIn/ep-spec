@@ -13,10 +13,10 @@ The input unit can be a physical device, program, or any thing that can
 generate data.
 
 
-EasyPlugin Data Gateway
+IoTtalk Data Gateway
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The EasyPlugin Data Gateway will transfer data according to user configured
+The IoTtalk Data Gateway will transfer data according to user configured
 project.
 
 
