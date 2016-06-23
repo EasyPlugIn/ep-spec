@@ -186,9 +186,6 @@ Metadata
 
 :feature_list: List of features. Feature has naming convension:
                ``([a-z][_a-z0-9]*)+``.
-
-:model: It has naming convension: ``([A-Z][a-z0-9]*)+``.
-
 :name: Arbitrary string, it can be consider as comment.
 
 :owner: Arbitrary string. This field is OPTIONAL.

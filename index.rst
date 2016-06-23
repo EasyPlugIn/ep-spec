@@ -8,3 +8,4 @@ IoTtalk Spec's documentation
     term
     protos/index
     api/index
+    gui/design

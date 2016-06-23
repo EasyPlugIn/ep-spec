@@ -83,7 +83,6 @@ Request::
 
     {
         "name": "BetaCat",
-        "model": "Cat",
         "feature_list": ["meow"],
         "accept_protos": ["MQTT", "WebSocket"]
     }
@@ -112,7 +111,7 @@ Error Response::
     {
         "id": "219e0050-10e0-48dd-9b99-e196acfb30c8",
         "state": "error",
-        "reason": "model not supported"
+        "reason": "feature not supported"
     }
 
 
