@@ -95,17 +95,19 @@ Response::
     {
         "id": "219e0050-10e0-48dd-9b99-e196acfb30c8",
         "state": "ok",
-        "control_channel": {
+        "ctrl_chan": {
             "scheme": "mqtt",
             "host": "example.org",
             "port": 1883,
             "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/ctrl"
         },
-        "data_channel": {
-            "scheme": "mqtt",
-            "host": "example.org",
-            "port": 1883,
-            "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/meow"
+        "data_chans": {
+            "meow": {
+                "scheme": "mqtt",
+                "host": "example.org",
+                "port": 1883,
+                "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/meow"
+            }
         }
     }
 
