@@ -83,7 +83,7 @@ Request::
 
     {
         "name": "BetaCat",
-        "feature_list": ["meow"],
+        "feature_list": [["meow", "i"]],
         "accept_protos": ["MQTT", "WebSocket"]
     }
 
@@ -96,10 +96,16 @@ Response::
         "id": "219e0050-10e0-48dd-9b99-e196acfb30c8",
         "state": "ok",
         "control_channel": {
-            "proto": "MQTT",
+            "scheme": "mqtt",
             "host": "example.org",
-            "port": "1883",
-            "topic": "ctrl-219e0050-10e0-48dd-9b99-e196acfb30c8"
+            "port": 1883,
+            "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/ctrl"
+        },
+        "data_channel": {
+            "scheme": "mqtt",
+            "host": "example.org",
+            "port": 1883,
+            "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/meow"
         }
     }
 

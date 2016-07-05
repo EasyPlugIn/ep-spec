@@ -184,8 +184,11 @@ Metadata
 
 :accept_protos: List of supported protocols. This field is OPTIONAL.
 
-:feature_list: List of features. Feature has naming convension:
+:feature_list: List of pair (feature, mode).
+               Feature has naming convension:
                ``([a-z][_a-z0-9]*)+``.
+               The ``mode`` attribute can be ``i|o|io``.
+               ``i`` denotes *input*. ``o`` denotes *output*.
 :name: Arbitrary string, it can be consider as comment.
 
 :owner: Arbitrary string. This field is OPTIONAL.
