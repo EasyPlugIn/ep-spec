@@ -143,7 +143,7 @@ Status Codes:
     - `200 OK`_
         - UUID successfully unregistered.
     - `404 Not Found`_
-        - UUID already unregistered.
+        - UUID already unregistered or not found.
 
 Request::
 
