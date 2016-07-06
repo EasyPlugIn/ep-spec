@@ -46,7 +46,10 @@ Response::
 
     {
         "id": "219e0050-10e0-48dd-9b99-e196acfb30c8",
-        "state": "online"
+        "state": "ok",
+        "name": "BetaCat",
+        "feature_list": [["meow", "i"]],
+        "accept_protos": ["MQTT", "WebSocket"]
     }
 
 
