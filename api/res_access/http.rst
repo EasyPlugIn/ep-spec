@@ -109,7 +109,7 @@ Response::
                 "scheme": "mqtt",
                 "host": "example.org",
                 "port": 1883,
-                "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/meow"
+                "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/meow/i"
             }
         }
     }
