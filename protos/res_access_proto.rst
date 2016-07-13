@@ -184,11 +184,22 @@ Metadata
 
 :accept_protos: List of supported protocols. This field is OPTIONAL.
 
-:feature_list: List of pair (feature, mode).
-               Feature has naming convension:
-               ``([a-z][_a-z0-9]*)+``.
-               The ``mode`` attribute can be ``i|o|io``.
-               ``i`` denotes *input*. ``o`` denotes *output*.
+:idf_list: *idf* stands for *Input Device Feature*.
+           This field is OPTIONAL.
+           It's a list of pair (*feature*, *units*).
+
+           :Feature: It has naming convension: ``([a-z][_a-z0-9]*)+``.
+           :Units: It is a list of string or null value.  We MUST infer the
+                   dimension of feature from shape of unit.
+
+:odf_list: *odf* stands for *Output Device Feature*.
+           This field is OPTIONAL.
+           It's a list of pair (*feature*, *units*).
+
+           :Feature: It has naming convension: ``([a-z][_a-z0-9]*)+``.
+           :Units: It is a list of string or null value.  We MUST infer the
+                   dimension of feature from shape of unit.
+
 :name: Arbitrary string, it can be consider as comment.
 
 :owner: Arbitrary string. This field is OPTIONAL.

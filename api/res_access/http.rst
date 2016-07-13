@@ -86,7 +86,7 @@ Request::
 
     {
         "name": "BetaCat",
-        "feature_list": [["meow", "i"]],
+        "idf_list": [["meow", ["dB"]]],
         "accept_protos": ["MQTT", "WebSocket"]
     }
 
@@ -98,21 +98,21 @@ Response::
     {
         "id": "219e0050-10e0-48dd-9b99-e196acfb30c8",
         "state": "ok",
-        "ctrl_chan": {
+        "url": {
             "scheme": "mqtt",
             "host": "example.org",
-            "port": 1883,
-            "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/ctrl"
+            "port": 1883
         },
-        "data_chans": {
-            "meow": {
-                "scheme": "mqtt",
-                "host": "example.org",
-                "port": 1883,
-                "topic": "219e0050-10e0-48dd-9b99-e196acfb30c8/meow/i"
-            }
-        }
+        "ctrl_chan": [
+            "219e0050-10e0-48dd-9b99-e196acfb30c8/ctrl/i",
+            "219e0050-10e0-48dd-9b99-e196acfb30c8/ctrl/o"
+        ]
     }
+
+:ctrl_chan: We use two mqtt topics here, in order to achieve bidirectional
+            communication. The ``i`` topic denote the uplink, client can send
+            control channel request via this link. Also, the ``o`` topic denote
+            the downlink, server will send control command via this channel.
 
 Error Response::
 
