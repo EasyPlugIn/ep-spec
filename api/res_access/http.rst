@@ -103,7 +103,7 @@ Response::
             "host": "example.org",
             "port": 1883
         },
-        "ctrl_chan": [
+        "ctrl_chans": [
             "219e0050-10e0-48dd-9b99-e196acfb30c8/ctrl/i",
             "219e0050-10e0-48dd-9b99-e196acfb30c8/ctrl/o"
         ]
