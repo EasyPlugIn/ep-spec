@@ -101,6 +101,6 @@ on the wire. The specific feature MUST be revealed in the signal payload.
 Shutdown Signal
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This signal make the resource fully shutdown. It will stop data transfer,
-disconnect from data channel, unregister itself, then maybe do some internal
-cleanup.
+This signal make the resource fully shutdown. It will stop all data transfer,
+disconnect all from data channel, unregister itself, then maybe do some
+internal cleanup.
