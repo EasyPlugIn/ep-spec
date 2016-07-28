@@ -55,18 +55,18 @@ is for the required parameters about the signal.
 
 The available types:
 
-- Delegate signal
+- Connect signal
 
-- Reset signal
+- Disconnect signal
 
-- Enable signal
+- Resume signal
 
-- Disable signal
+- Suspend signal
 
 - Shutdown signal
 
 
-Delegate Signal
+Connect Signal
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This signal makes a resource setup its feature data channel with the proper
@@ -74,7 +74,7 @@ parameters. The parameters of data channel MUST be revealed in the signal
 payload.
 
 
-Reset Signal
+Disconnect Signal
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This signal makes a resource reset its specific feature data channel connection
@@ -83,15 +83,15 @@ from data channel and disable the feature. The specific feature MUST be
 revealed in the signal payload.
 
 
-Enable Signal
+Resume Signal
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This signal sent from IoTtalk requests a resource feature start to do data
+This signal is sent from IoTtalk requests a resource feature start to do data
 exchange on the wire. The specific feature MUST be revealed in the signal
 payload.
 
 
-Disable Signal
+Suspend Signal
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This signal aims at stop the data transfer of specific resource feature
@@ -101,6 +101,6 @@ on the wire. The specific feature MUST be revealed in the signal payload.
 Shutdown Signal
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This signal make the resource fully shutdown. It will stop all data transfer,
+This signal makes the resource fully shutdown. It will stop all data transfer,
 disconnect all from data channel, unregister itself, then maybe do some
 internal cleanup.
