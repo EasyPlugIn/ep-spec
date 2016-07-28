@@ -86,8 +86,8 @@ revealed in the signal payload.
 Resume Signal
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This signal is sent from IoTtalk requests a resource feature start to do data
-exchange on the wire. The specific feature MUST be revealed in the signal
+This signal is sent from IoTtalk that requests a resource feature start to do
+data exchange on the wire. The specific feature MUST be revealed in the signal
 payload.
 
 

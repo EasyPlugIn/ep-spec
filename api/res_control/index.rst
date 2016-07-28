@@ -1,8 +1,7 @@
-API Specification
+Resource Control API
 ===============================================================================
 
 .. toctree::
     :glob:
 
-    res_access/index
-    res_control/index
+    *
