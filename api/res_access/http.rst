@@ -61,12 +61,12 @@ Request Headers:
         - *application/json; charset=utf-8*
     - `Content-Type`_
         - *application/json; charset=utf-8*
-    - `X-Time`
-        - The timestamp
 
 Response Headers:
     - `Content-Type`_
         - *application/json; charset=utf-8*
+    - `X-Revision`
+        - An UUID for deregistration token.
 
 Response JSON Object:
     - id (*string*): The requested UUID.
@@ -76,6 +76,8 @@ Response JSON Object:
 Status Codes:
     - `200 OK`_
         - UUID registration accepted.
+    - `400 Bad Request`_
+        - Wrong `Content-Type`.
     - `403 Forbidden`_
         - Any content of metadata is not recognized.
 
@@ -115,9 +117,10 @@ Response::
             control channel request via this link. Also, the ``o`` topic denote
             the downlink, server will send control command via this channel.
 
-:timestamp: It is required to determine the race condiction of http request.
-            If there is any requst arrived but with earlier timestamp, it will
-            be dropped.
+:X-Revision: It is a token for deregistration. Add this header to ``DELETE``
+             requst help us determine the race condiction of http request.
+             If server consider the revision is old, we will return a
+             400 code.
 
 Error Response::
 
@@ -137,8 +140,8 @@ DELETE /<id>
 Request Headers:
     - `Accept`_
         - *application/json; charset=utf-8*
-    - `X-Time`
-        - The timestamp
+    - `X-Revision`
+        - An UUID for deregistration token.
 
 Response Headers:
     - `Content-Type`_
@@ -152,6 +155,8 @@ Response JSON Object:
 Status Codes:
     - `200 OK`_
         - UUID successfully unregistered.
+    - `400 Bad Request`_
+        - Wrong `Content-Type` or `X-Revision` out-of-date.
     - `404 Not Found`_
         - UUID already unregistered or not found.
 
@@ -186,6 +191,7 @@ Error Response::
 .. _Accept: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
 .. _Content-Type: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17
 .. _200 OK: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1
+.. _400 Bad Request: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
 .. _403 Forbidden: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
 .. _404 Not Found: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
 .. _409 Conflict: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.10
