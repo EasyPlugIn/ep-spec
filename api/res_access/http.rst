@@ -61,6 +61,8 @@ Request Headers:
         - *application/json; charset=utf-8*
     - `Content-Type`_
         - *application/json; charset=utf-8*
+    - `X-Time`
+        - The timestamp
 
 Response Headers:
     - `Content-Type`_
@@ -76,13 +78,12 @@ Status Codes:
         - UUID registration accepted.
     - `403 Forbidden`_
         - Any content of metadata is not recognized.
-    - `409 Conflict`_
-        - UUID already registered.
 
 Request::
 
     PUT /219e0050-10e0-48dd-9b99-e196acfb30c8 HTTP/1.1
     Accept: application/json
+    X-Time: 1471357158073
 
     {
         "name": "BetaCat",
@@ -114,6 +115,10 @@ Response::
             control channel request via this link. Also, the ``o`` topic denote
             the downlink, server will send control command via this channel.
 
+:timestamp: It is required to determine the race condiction of http request.
+            If there is any requst arrived but with earlier timestamp, it will
+            be dropped.
+
 Error Response::
 
     HTTP/1.1 403 Forbidden
@@ -132,6 +137,8 @@ DELETE /<id>
 Request Headers:
     - `Accept`_
         - *application/json; charset=utf-8*
+    - `X-Time`
+        - The timestamp
 
 Response Headers:
     - `Content-Type`_
@@ -152,6 +159,7 @@ Request::
 
     DELETE /219e0050-10e0-48dd-9b99-e196acfb30c8 HTTP/1.1
     Accept: application/json
+    X-Time: 1471357158073
 
 Response::
 
