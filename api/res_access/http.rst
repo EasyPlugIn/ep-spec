@@ -65,13 +65,19 @@ Request Headers:
 Response Headers:
     - `Content-Type`_
         - *application/json; charset=utf-8*
-    - `X-Revision`
-        - An UUID for deregistration token.
 
 Response JSON Object:
     - id (*string*): The requested UUID.
     - state (*string*): The state of the resource, *ok* or *error*.
     - reason (*string*, optional): The error message.
+    - rev (*string*): the token required by deregistration.
+      It stands for *revision*.
+    - url (*json*)
+    - ctrl_chans (*array*):We use two mqtt topics here, in order to achieve
+      bidirectional communication. The ``i`` topic denote the uplink,
+      client can send control channel request via this link.
+      Also, the ``o`` topic denote the downlink, server will send control
+      command via this channel.
 
 Status Codes:
     - `200 OK`_
@@ -85,7 +91,6 @@ Request::
 
     PUT /219e0050-10e0-48dd-9b99-e196acfb30c8 HTTP/1.1
     Accept: application/json
-    X-Time: 1471357158073
 
     {
         "name": "BetaCat",
@@ -100,6 +105,7 @@ Response::
 
     {
         "id": "219e0050-10e0-48dd-9b99-e196acfb30c8",
+        "rev": "41997b1e-2850-43b5-b4b5-309d05307bf7",
         "state": "ok",
         "url": {
             "scheme": "mqtt",
@@ -111,16 +117,6 @@ Response::
             "219e0050-10e0-48dd-9b99-e196acfb30c8/ctrl/o"
         ]
     }
-
-:ctrl_chan: We use two mqtt topics here, in order to achieve bidirectional
-            communication. The ``i`` topic denote the uplink, client can send
-            control channel request via this link. Also, the ``o`` topic denote
-            the downlink, server will send control command via this channel.
-
-:X-Revision: It is a token for deregistration. Add this header to ``DELETE``
-             requst help us determine the race condiction of http request.
-             If server consider the revision is old, we will return a
-             400 code.
 
 Error Response::
 
@@ -140,8 +136,9 @@ DELETE /<id>
 Request Headers:
     - `Accept`_
         - *application/json; charset=utf-8*
-    - `X-Revision`
-        - An UUID for deregistration token.
+
+    - `Content-Type`_
+        - *application/json; charset=utf-8*
 
 Response Headers:
     - `Content-Type`_
@@ -156,7 +153,7 @@ Status Codes:
     - `200 OK`_
         - UUID successfully unregistered.
     - `400 Bad Request`_
-        - Wrong `Content-Type` or `X-Revision` out-of-date.
+        - Wrong `Content-Type` or `revision` out-of-date.
     - `404 Not Found`_
         - UUID already unregistered or not found.
 
@@ -164,7 +161,11 @@ Request::
 
     DELETE /219e0050-10e0-48dd-9b99-e196acfb30c8 HTTP/1.1
     Accept: application/json
-    X-Time: 1471357158073
+    Content-Type: application/json
+
+    {
+        "rev": "41997b1e-2850-43b5-b4b5-309d05307bf7"
+    }
 
 Response::
 
