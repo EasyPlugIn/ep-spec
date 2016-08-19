@@ -49,7 +49,8 @@ Response::
         "state": "ok",
         "name": "BetaCat",
         "idf_list": [["meow", ["dB"]]],
-        "accept_protos": ["MQTT", "WebSocket"]
+        "accept_protos": ["MQTT", "WebSocket"],
+        "rev": "cc35867e-1f74-47d3-88c9-7dcc374a5919"
     }
 
 
