@@ -25,7 +25,7 @@ Response Headers:
         - *application/json; charset=utf-8*
 
 Response JSON Object:
-    - id (string): The requested UUID.
+    - id (*string*): The requested UUID.
     - state (*string*): The state of the resource, *online* or *offline*.
 
 Status Codes:
@@ -62,6 +62,12 @@ Request Headers:
         - *application/json; charset=utf-8*
     - `Content-Type`_
         - *application/json; charset=utf-8*
+
+Request JSON Object:
+    - name (*string*, optional): The name of the device application
+    - idf_list (*array*, optional): The Input Device Feature list of the device application
+    - odf_list (*array*, optional): The Output Device Feature list of the device application
+    - accept_protos (*array*): The accepted protocols list of the device application
 
 Response Headers:
     - `Content-Type`_
@@ -140,6 +146,9 @@ Request Headers:
 
     - `Content-Type`_
         - *application/json; charset=utf-8*
+
+Request JSON Object:
+    - rev (*string*): the token required by deregistration. It stands for revision.
 
 Response Headers:
     - `Content-Type`_
