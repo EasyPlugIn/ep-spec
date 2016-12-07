@@ -1,6 +1,12 @@
 Architecture
 ===============================================================================
 
+Network Structure
+----------------------------------------------------------------------
+
+
+.. image:: _static/iottalk2-networkstructure.png
+.. image:: _static/iottalk2-networkstructure2.png
 
 Components
 ----------------------------------------------------------------------
