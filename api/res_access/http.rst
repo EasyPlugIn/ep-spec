@@ -68,6 +68,7 @@ Request JSON Object:
     - idf_list (*array*, optional): The Input Device Feature list of the device application
     - odf_list (*array*, optional): The Output Device Feature list of the device application
     - accept_protos (*array*): The accepted protocols list of the device application
+    - profile (*json*, optional): The data for device application details.
 
 Response Headers:
     - `Content-Type`_
@@ -102,7 +103,10 @@ Request::
     {
         "name": "BetaCat",
         "idf_list": [["meow", ["dB"]]],
-        "accept_protos": ["MQTT", "WebSocket"]
+        "accept_protos": ["MQTT", "WebSocket"],
+        "profile": {
+            "model": "AI"
+        }
     }
 
 Response::

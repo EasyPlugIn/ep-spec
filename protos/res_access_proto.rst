@@ -204,6 +204,8 @@ Metadata
 
 :owner: Arbitrary string. This field is OPTIONAL.
 
+:profile: A JSON object for storing arbitrary data. This field is OPTIONAL.
+
 
 Security Aspects
 ----------------------------------------------------------------------
