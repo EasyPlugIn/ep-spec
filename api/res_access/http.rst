@@ -27,6 +27,7 @@ Response Headers:
 Response JSON Object:
     - id (*string*): The requested UUID.
     - state (*string*): The state of the resource, *online* or *offline*.
+    - ... and other available metadata field.
 
 Status Codes:
     - `200 OK`_
@@ -50,7 +51,10 @@ Response::
         "name": "BetaCat",
         "idf_list": [["meow", ["dB"]]],
         "accept_protos": ["MQTT", "WebSocket"],
-        "rev": "cc35867e-1f74-47d3-88c9-7dcc374a5919"
+        "rev": "cc35867e-1f74-47d3-88c9-7dcc374a5919",
+        "profile": {
+            "model": "AI"
+        }
     }
 
 
