@@ -1,4 +1,4 @@
-IoTtalk Spec's documentation
+IoTtalk's documentation
 ===============================================================================
 
 .. toctree::
