@@ -129,6 +129,6 @@ Due to this protocol use UDP as transportation layer. This Attack is a common
 issue. Attacker can send huge amount of udp packages with ``ping`` command
 to make every devices in the LAN busy.
 
-We RECOMMENDED each device maitain a rate limitation for the ``ping`` command.
+We RECOMMENDED each device maintain a rate limitation for the ``ping`` command.
 Note again that the receiver of ``ping`` command SHOULD invoke response,
 but not MUST. Devices can drop udp packages if necessary.
