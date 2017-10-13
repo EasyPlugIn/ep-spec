@@ -84,6 +84,7 @@ Response JSON Object:
     - reason (*string*, optional): The error message.
     - rev (*string*): the token required by deregistration.
       It stands for *revision*.
+    - name (*string*): the provided name or auto-generated name by server.
     - url (*json*)
     - ctrl_chans (*array*):We use two mqtt topics here, in order to achieve
       bidirectional communication. The ``i`` topic denote the uplink,
@@ -121,6 +122,7 @@ Response::
     {
         "id": "219e0050-10e0-48dd-9b99-e196acfb30c8",
         "rev": "41997b1e-2850-43b5-b4b5-309d05307bf7",
+        "name": "BetaCat",
         "state": "ok",
         "url": {
             "scheme": "mqtt",
